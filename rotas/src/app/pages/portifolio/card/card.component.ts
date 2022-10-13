@@ -12,6 +12,11 @@ export class CardComponent implements OnInit {
     this._activeRoute.params.subscribe(
       res => console.log(res)
     );
+
+    this._activeRoute.queryParams.subscribe(
+      res => console.log(res)
+    );
+
    }
 
   ngOnInit(): void {
