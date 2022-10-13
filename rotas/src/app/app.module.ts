@@ -1,3 +1,5 @@
+import { PortifolioModule } from './pages/portifolio/portifolio.module';
+import { IndexModule } from './pages/index/index.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IndexModule,
+    PortifolioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
