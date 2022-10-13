@@ -12,7 +12,8 @@ export class CardComponent implements OnInit {
     private _navegador: Router
   ) {
     this._activeRoute.params.subscribe((res) => console.log(res));
-    // this._activeRoute.queryParams.subscribe((res) => console.log(res));
+    this._activeRoute.firstChild?.params.subscribe((res) => console.log(res));
+    this._activeRoute.queryParams.subscribe((res) => console.log(res));
   }
 
   ngOnInit(): void {
