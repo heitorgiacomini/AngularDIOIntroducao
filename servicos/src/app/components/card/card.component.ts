@@ -10,22 +10,36 @@ import { Component, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
 
-  pokemon!: PokemonData;
+  pokemon: PokemonData = {
+    id: 0,
+    name: "",
+    sprites: {
+      front_default: ''
+    },
+    types: []
+  }
+
   constructor(
     private _pokemon: PokemonService
-  ) { }
+    ) {
+  }
 
   ngOnInit(): void {
-    this._pokemon.getPokemon("charizard").subscribe({
+    this.getPokemon('pikachu');
+  }
+
+  getPokemon(pokemonNmae: string){
+    this._pokemon.getPokemon(pokemonNmae).subscribe({
       next: (res) => {
-        console.log(res);
         this.pokemon ={
           id: res.id,
           name: res.name,
           sprites: res.sprites,
           types: res.types
         }
-      }
+        console.log(this.pokemon.name);
+      },
+      error: (err) => console.log(this.pokemon.name)
     });
   }
 
