@@ -1,0 +1,88 @@
+<h2>Course id = {{ courseId }}</h2>
+
+<form #courseForm="ngForm" *ngIf="course">
+
+  <div class="mb-3 row">
+    <label class="col-sm-2">Name:</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="course.name"
+        name="name"
+        #courseName="ngModel"
+        [ngClass]="{ 'is-invalid': courseName.invalid && courseName.touched }"
+      />
+      <div class="invalid-feedback">
+        Name is required
+        <!-- <div *ngIf="courseName.errors?.['required']"></div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-2">Price:</label>
+    <div class="col-sm-10">
+      <input
+        type="number"
+        class="form-control"
+        required
+        [(ngModel)]="course.price"
+        name="price"
+        #coursePrice="ngModel"
+        [ngClass]="{
+          'is-invalid': coursePrice.invalid && coursePrice.touched
+        }"
+      />
+      <div class="invalid-feedback">
+        Price is required
+        <!-- <div *ngIf="courseName.errors?.['required']"></div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-2">Rating:</label>
+    <div class="col-sm-10">
+      <input
+        type="number"
+        class="form-control"
+        required
+        [(ngModel)]="course.rating"
+        name="Rating"
+        #courseRating="ngModel"
+        [ngClass]="{
+          'is-invalid': courseRating.invalid && courseRating.touched
+        }"
+      />
+      <div class="invalid-feedback">
+        Rating is required
+        <!-- <div *ngIf="courseName.errors?.['required']"></div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-2">Description:</label>
+    <div class="col-sm-10">
+      <textarea
+        class="form-control"
+        required
+        [(ngModel)]="course.description"
+        name="Description"
+        #courseDescription="ngModel"
+        [ngClass]="{
+          'is-invalid': courseDescription.invalid && courseDescription.touched
+        }"
+      ></textarea>
+      <div class="invalid-feedback">
+        Description is required
+        <!-- <div *ngIf="courseName.errors?.['required']"></div> -->
+      </div>
+    </div>
+  </div>
+
+  <button [disabled]="courseForm.invalid" (click)="save()" type="button" class="btn btn-primary me-2">Save</button>
+  <button [routerLink]="['/courses']" type="button" class="btn btn-secondary">Back</button>
+</form>
