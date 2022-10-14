@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  name: string | null = "Bulbassauro";
+  attributesTypes: string[] = ['FIRE', 'ROCK']
   constructor() { }
 
   ngOnInit(): void {
