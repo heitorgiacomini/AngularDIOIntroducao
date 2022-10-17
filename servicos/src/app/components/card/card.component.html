@@ -2,7 +2,7 @@
 <div class="card">
   <input type="text" (input)="getPokemon($any($event.target).value)">
   <div class="title">
-    <h3>{{  pokemon.name | uppercase }}</h3>
+    <h3>{{  pokemon.name | transformador:  ['a','b','c'] }}</h3>
   </div>
   <div class="body">
     <img src="{{  pokemon.sprites.front_default }}" alt="pokemon">

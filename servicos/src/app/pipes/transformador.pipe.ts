@@ -6,7 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TransformadorPipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
-    return value+'abc';
+    return `${value} ${args}` ;
   }
+
+  // transform(value: unknown, name:any, token: any): unknown {
+  //   return `${value} - ${name} - ${token}`;
+  // }
 
 }
