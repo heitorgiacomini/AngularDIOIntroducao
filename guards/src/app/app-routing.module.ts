@@ -7,11 +7,11 @@ import { SobreComponent } from './components/sobre/sobre.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '' },
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'sobre', component: SobreComponent },
   { path: 'produtos', component: ProdutosComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

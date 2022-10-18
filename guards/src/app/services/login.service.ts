@@ -6,4 +6,11 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   constructor() { }
+
+  doLogin(){
+    localStorage.setItem('token','asdf342');
+  }
+  doLogout(){
+    localStorage.clear();
+  }
 }
