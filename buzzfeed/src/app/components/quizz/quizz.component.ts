@@ -34,6 +34,7 @@ export class QuizzComponent implements OnInit {
 
   playerChoice(value: string){
     this.answers.push(value);
+    this.nextStep();
   }
 
   async nextStep(){
@@ -42,8 +43,26 @@ export class QuizzComponent implements OnInit {
       this.questionSelected = this.questions[this.questionIndex];
     }else{
       this.finished = true;
+      let finalAnswer: string = await this.checkResult(this.answers);
+      this.answerSelected = quizz_questions.results[finalAnswer as keyof typeof quizz_questions.results];
     }
+  }
+
+  async checkResult(answers: string[]){
+    let result = answers.reduce((previous, current, i , arr) =>{
+      if(
+        arr.filter(item => item === previous).length >
+        arr.filter(item => item === current).length
+       ){
+        return previous;
+      }else{
+        return previous;
+      }
+    });
+
+    return result;
 
   }
+
 
 }
