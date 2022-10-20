@@ -38,7 +38,6 @@ export class QuizzComponent implements OnInit {
 
   async nextStep(){
     this.questionIndex++;
-
     if(this.questionMaxIndex > this.questionIndex){
       this.questionSelected = this.questions[this.questionIndex];
     }else{
